@@ -1,0 +1,19 @@
+spring:
+  kafka:
+    kafka-server: localhost:9092
+
+# Feign + CircuitBreaker 활성화
+feign:
+  circuitbreaker:
+    enabled: true
+
+# Feign + CircuitBreaker 트랜잭션 처리
+resilience4j:
+  circuitbreaker:
+    instances:
+      # 여긴 임의 지정명. (어노테이션의 name)
+      productService:
+        # 임계치 - circuitbreaker 발동 될 실패율
+        failure-rate-threshold: 40 # %
+        # circuitbreaker 발동 시간
+        wait-duration-in-open-state: 10s
