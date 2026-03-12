@@ -1,6 +1,7 @@
 spring:
   kafka:
-    kafka-server: localhost:9092
+    kafka-server: kafka-service:9092
+    bootstrap-servers: kafka-service:9092
     consumer:
       group-id: product-group
       auto-offset-reset: earliest # 메시지 관리 '라운드 로빈' 방식으로 처리
